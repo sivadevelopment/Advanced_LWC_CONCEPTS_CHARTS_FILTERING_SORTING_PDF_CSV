@@ -1,0 +1,31 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @l    ast modified on  : 04-30-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-layout multiple-rows>
+        <lightning-layout-item size="6" padding="around-small">
+            <lightning-card title="Total Oppertunity1">
+                <template if:true={pieChartLables}>
+                    <c-charts type="doughnut" chart-heading="Oppertunities" chart-data={pieChartData}
+                        chart-labels={pieChartLables}>
+                    </c-charts>
+                </template>
+            </lightning-card>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="6" padding="around-small">
+            <lightning-card title="Total Oppertunity2">
+                <template if:true={pieChartLables}>
+                    <c-charts type="bar" chart-heading="Oppertunities @2" chart-data={pieChartData}
+                        chart-labels={pieChartLables}>
+                    </c-charts>
+                </template>
+            </lightning-card>
+        </lightning-layout-item>
+
+    </lightning-layout>
+</template>

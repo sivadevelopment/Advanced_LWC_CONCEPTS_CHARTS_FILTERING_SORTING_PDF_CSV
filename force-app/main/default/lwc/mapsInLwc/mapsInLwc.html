@@ -1,0 +1,19 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 05-01-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="slds-box">
+        <template if:true={mapMarkar}>
+            <lightning-map map-markers={mapMarkar} markers-title={markerTitale} onmarkerselect={callMarkerHandler}
+                selected-marker-value={selectedMarkerValue}></lightning-map>
+        </template>
+
+        <template if:false={mapMarkar}>
+            <div class=""> No Account Found</div>
+        </template>
+    </div>
+</template>

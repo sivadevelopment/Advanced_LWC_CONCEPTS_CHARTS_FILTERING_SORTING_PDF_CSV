@@ -1,0 +1,15 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 04-30-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<apex:page controller="PDFController" renderAs="pdf" applyHtmlTag="false" showHeader="false" cache="true" readOnly="true">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+        <apex:outputText value="{!pdfText}" escape="false"></apex:outputText>
+    </head>
+</html>
+</apex:page>
