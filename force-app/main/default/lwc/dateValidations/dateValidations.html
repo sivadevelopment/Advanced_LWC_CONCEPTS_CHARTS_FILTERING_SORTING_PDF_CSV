@@ -1,0 +1,21 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 05-03-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Date Validation">
+        <div class="slds-p-around_medium">
+            <lightning-input type="date" name="startDate" label="Start Date" onchange={dateHandlar}></lightning-input>
+            <lightning-input type="date" name="endDate" label="End Date" onchange={dateHandlar}></lightning-input>
+            <template if:true={error}>
+                <p class="slds-text-color_error">{error}</p>
+            </template>
+            <lightning-button variant="brand" label="submit" onclick={submitHandlar}
+                class="slds-m-top_medium slds-p-around_medium">
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,19 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 05-03-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="CSV Generation">
+        <div class="slds-p-around_medium">
+            <template if:true={accountList}>
+                <template for:each={accountList} for:item="account">
+                    <p key={account.Name}>{account.Phone}</p>
+                </template>
+            </template>
+            <lightning-button variant="" label="Generate Csv" onclick={csvGenerator}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

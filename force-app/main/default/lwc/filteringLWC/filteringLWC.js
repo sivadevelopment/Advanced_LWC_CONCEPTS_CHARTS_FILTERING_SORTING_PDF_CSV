@@ -64,18 +64,19 @@ export default class FilteringLWC extends LightningElement {
     }
 
     sortByHandler(event) {
-        const filterValue = event.target.value;
         this.sortBy = event.target.value;;
-        this.filteredData = [...this.sortBy(this.filteredData)];
+        console.log('Sort By Value');
+        console.log(this.sortBy)
+        this.filteredData = this.sortByData(this.filteredData);
     }
 
-    sortBy(data) {
+    sortByData(data) {
         const cloneData = [...data];
         cloneData.sort((a,b) => {
             if (a[this.sortBy] == b[this.sortBy]) {
                 return 0;
             }
-            return this.sortDirection == 'desc' ? a[this.sortBy] > b[this.sortBy] ? -1:1: a[this.sortBy] > b[this.sortBy] ? -1:1;
+            return this.sortDirection == 'asc' ? a[this.sortBy] > b[this.sortBy] ? -1:1: a[this.sortBy] > b[this.sortBy] ? -1:1;
         })
         return cloneData;
     }
