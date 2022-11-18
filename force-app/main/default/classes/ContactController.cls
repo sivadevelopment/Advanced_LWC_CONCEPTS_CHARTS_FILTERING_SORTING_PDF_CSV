@@ -7,7 +7,7 @@
 **/
 public with sharing class ContactController {
    
-//This to get contacts
+//This to get contacts Test 1
     @AuraEnabled(cacheable=true)
     public static List<Contact> getContactList(){
 
