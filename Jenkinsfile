@@ -46,5 +46,29 @@ node {
             println(rmsg)
         }
 		
+		
+		tage('Push To Test Org') {
+
+				rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:source:push --targetusername ${SFDC_USERNAME}"
+			   if (rc != 0) {
+				error 'push all failed'
+			   }
+			   // assign permset
+			   rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:user:permset:assign --targetusername ${SFDC_USERNAME} --permsetname DreamHouse"
+			   if (rc != 0) {
+				error 'push all failed'
+			   }
+        }
+		
+		stage('Run Apex Test') {
+		   sh "mkdir -p ${RUN_ARTIFACT_DIR}"
+		   timeout(time: 120, unit: 'SECONDS') {
+			rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:apex:test:run --testlevel RunLocalTests --outputdir ${RUN_ARTIFACT_DIR} --resultformat tap --targetusername ${SFDC_USERNAME}"
+			if (rc != 0) {
+				error 'apex test run failed'
+			}
+        }
+      }
+		
     }
 }
